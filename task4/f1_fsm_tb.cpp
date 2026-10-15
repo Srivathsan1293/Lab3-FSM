@@ -24,12 +24,12 @@ int main(int argc, char **argv, char **env) {
 	top->trigger = 0;
         
 	for (int i = 0; i < 1000000; i++) {
+		top->rst = (i < 2);
 		for (int clk = 0; clk < 2; clk++) {
 			tfp->dump(2*i + clk);
 			top->clk = !top->clk;
 			top->eval();
 		}
-        top->trigger = vbdFlag();
 		current_val = top->data_out & 0xFF;
 		if ((prev_val == 0xFF) && (current_val == 0x00)){
 			vbdInitWatch();

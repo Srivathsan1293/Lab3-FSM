@@ -39,7 +39,7 @@ module f1_fsm(
 			s5: begin data_out = 8'b11111; delay = 1'b0; seq = 1'b1; end
 			s6: begin data_out = 8'b111111; delay = 1'b0; seq = 1'b1; end
 			s7: begin data_out = 8'b1111111; delay = 1'b0; seq = 1'b1; end
-			s8: begin data_out = 8'b11111111; delay = 1'b0; seq = 1'b1; end
+			s8: begin data_out = 8'b11111111; delay = 1'b1; seq = 1'b0; end
 			default: data_out = 8'b0;
 		endcase
 	end
