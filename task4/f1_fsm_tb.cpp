@@ -31,18 +31,18 @@ int main(int argc, char **argv, char **env) {
 		}
         top->trigger = vbdFlag();
 		current_val = top->data_out & 0xFF;
-		if (prev_val == 0xFF && current_val = 0x00){
+		if ((prev_val == 0xFF) && (current_val == 0x00)){
 			vbdInitWatch();
 			timer = true;
 		}
 
-		if (waiting_reaction) {
+		if (timer) {
 			if (vbdFlag()) {          // User pressed the switch!
 				int reaction_time = vbdElapsed(); // Read time in ms
 				vbdHex(3, (reaction_time >> 8) & 0xF);
 				vbdHex(2, (reaction_time >> 4) & 0xF);
 				vbdHex(1, reaction_time & 0xF);
-				waiting_reaction = false;
+				timer = false;
 			} 
 		}else {
 			top->trigger = vbdFlag();
