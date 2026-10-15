@@ -20,7 +20,7 @@ This system mirrors the official starting procedure by integrating:
 
 The complete system diagram below illustrates how each hardware component interconnects:
 
-![Formula 1 Starting Light and Reaction Timer Architecture](../images/F1_full.jpg)
+![Formula 1 Starting Light and Reaction Timer Architecture](F1_full.jpg)
 
 ### Subsystem Interconnections:
 - **`clktick.sv`**: Driven by `clk`, enabled by `seq`. Provides 1-second tick pulses to input `1` of the 2-to-1 MUX.
