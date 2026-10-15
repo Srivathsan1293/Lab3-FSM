@@ -39,9 +39,10 @@ int main(int argc, char **argv, char **env) {
 		if (timer) {
 			if (vbdFlag()) {          // User pressed the switch!
 				int reaction_time = vbdElapsed(); // Read time in ms
-				vbdHex(3, (reaction_time >> 8) & 0xF);
-				vbdHex(2, (reaction_time >> 4) & 0xF);
-				vbdHex(1, reaction_time & 0xF);
+				vbdHex(4, (reaction_time / 1000) % 10);  //software BCD
+                                vbdHex(3, (reaction_time / 100)  % 10);  
+                                vbdHex(2, (reaction_time / 10)   % 10);  
+                                vbdHex(1,  reaction_time         % 10);  
 				timer = false;
 			} 
 		}else {
